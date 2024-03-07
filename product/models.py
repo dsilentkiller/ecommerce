@@ -4,7 +4,7 @@ from django.db import models
 
 
 class ProductManager(models.Manager):
-    def filter_by_category_name(self, category_name):
+    def category(self, category_name):
         return self.get_queryset().filter(category_name=category_name)
 
     def get_queryset(self):
@@ -30,7 +30,7 @@ class Product(models.Model):
     hot_sell = models.CharField(max_length=200)
     discount = models.CharField(max_length=200)
     description = models.TextField(null=True)
-    image = models.ImageField(upload_to='static/image', null=True)
+    image = models.ImageField(upload_to='media/image', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     custom_objects = ProductManager()
 

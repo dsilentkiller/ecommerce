@@ -50,7 +50,7 @@ class ProductUpdateView(DetailView):
 class ProductPriceList(ListView):
     model = Product
     template_name = 'product/product_price.html'
-    queryset = Product.custom_objects.all()
+    queryset = Product.custom_objects.all().filter(price__gte=800)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -65,4 +65,9 @@ class CategoryList(ListView):
     model = Product
     template_name = 'product/category_list.html'
     context_object_name = 'list'
-    # queryset = Product.custom_objects.filter_by_category_name('category')
+    queryset = Product.custom_objects.filter(price__gte=500)
+
+    # def product_list(request):
+    #     filter = Product(
+    #         request.GET, queryset=Product.custom_objects.all().filter)
+    #     return render(request, 'product/product_price.html', {'filter': filter})
