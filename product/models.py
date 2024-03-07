@@ -30,7 +30,7 @@ class Product(models.Model):
     hot_sell = models.CharField(max_length=200)
     discount = models.CharField(max_length=200)
     description = models.TextField(null=True)
-    image = models.ImageField(upload_to='media/image', null=True)
+    image = models.ImageField(upload_to='static', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     custom_objects = ProductManager()
 
