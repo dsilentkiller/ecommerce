@@ -1,0 +1,90 @@
+{% extends '../product/base.html' %} {% block content %}
+<div class="section">
+  <div class="container">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h4>Add Product</h4>
+        </div>
+        <div class="card-body">
+          <div class="form group row">
+           <!--  <div class="col-md-8">
+              <form method="POST">
+                {% csrf_token %} {{ form.as_p }} {{ cripsy_form }}
+                <button type="submit">save me</button>
+              </form>
+            </div> -- >
+            <div class="bg-gray-100  p-6 flex items-center justify-center h-screen">
+              <h2 class="text-2xl font-semibold mb-4">Create a new product</h2>
+              
+              <form method="post" action="{% url 'product:create' %}" enctype="multipart/form-data" class="max-w-md bg-white p-6 rounded-md shadow-md">
+                  {% csrf_token %}
+                  
+                  <!-- Product Name -->
+                  <div class="mb-1">
+                      <label for="id_name" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
+                      <input type="text" name="name" id="id_name" class="w-100%  border rounded-md p-2" required>
+                  </div>
+          
+                  <div class="mb-4">
+                    <label for="id_image" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+                    <input type="text" name="category" id="category" class="w-75% border rounded-md p-2">
+                </div>
+                   <!-- quantity-->
+                   <div class="mb-1">
+                    <label for="id_name" class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
+                    <input type="text" name="quantity" id="quantity" class="w-100%  border rounded-md p-2" required>
+                </div>
+                   <!-- Product Name -->
+                   <div class="mb-1">
+                    <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Product Price</label>
+                    <input type="text" name="price" id="price" class="w-100%  border rounded-md p-2" required>
+                </div>
+
+                   <!-- Product Name -->
+                   <div class="mb-1">
+                    <label for="summer_coll" class="block text-gray-700 text-sm font-bold mb-2">Summer Collection</label>
+                    <input type="text" name="summer_coll" id="summer_coll" class="w-100%  border rounded-md p-2" required>
+                </div>
+          
+                   <!-- Product Name -->
+                   <div class="mb-1">
+                    <label for="autmon_coll" class="block text-gray-700 text-sm font-bold mb-2">Autmon Collection</label>
+                    <input type="text" name="autmon_coll" id="autmon_coll" class="w-100%  border rounded-md p-2" required>
+                </div>
+                
+                   <!-- hot sell -->
+                   <div class="mb-1">
+                    <label for="hot_sell" class="block text-gray-700 text-sm font-bold mb-2">hot sell</label>
+                    <input type="text" name="hot_sell" id="hot_sell" class="w-100%  border rounded-md p-2" required>
+                </div>
+
+                
+                   <!-- Product Name -->
+                   <div class="mb-1">
+                    <label for="summer_coll" class="block text-gray-700 text-sm font-bold mb-2">discount</label>
+                    <input type="text" name="discount" id="summer_coll" class="w-100%  border rounded-md p-2" required>
+                </div>
+                
+                   <!-- Product Name -->
+                   <div class="mb-1">
+                    <label for="summer_coll" class="block text-gray-700 text-sm font-bold mb-2">description</label>
+                    <input type="text" name="description" id="summer_coll" class="w-100%  border rounded-md p-2" required>
+                </div>
+                  <!-- Image Upload -->
+                  <div class="mb-4">
+                      <label for="id_image" class="block text-gray-700 text-sm font-bold mb-2">Product Image</label>
+                      <input type="file" name="image" id="id_image" class="w-75% border rounded-md p-2">
+                  </div>
+              
+          
+                  <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">Save Product</button>
+              </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
