@@ -22,7 +22,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('product.urls')),
-    path('order/', include('orders.urls')),
+    # path('orders/', include('order.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    path('custom-user/', include('customuser.urls')),
+
+
 ]
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL,

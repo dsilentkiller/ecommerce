@@ -1,0 +1,88 @@
+{% extends '../product/base.html' %} {% block content %}
+
+<div class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <h2 class="text-2xl font-semibold mb-4">
+      Welcome! Please Login to continue.
+    </h2>
+    <p class="text-sm text-gray-600">
+      New member?
+      <a
+        href="{% url:'accounts:register'%}"
+        class="text-blue-500 hover:text-blue-700"
+        >Register here.</a
+      >
+    </p>
+
+    <form
+      method="post"
+      action="{% url 'accounts:login' %}"
+      enctype="multipart/form-data"
+      class="space-y-4 mt-4"
+    >
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700"
+          >Phone Number or Email</label
+        >
+        <input
+          type="text"
+          id="email"
+          name="email"
+          required
+          class="mt-1 p-2 w-full border rounded-md"
+        />
+        <p class="text-xs text-gray-500 mt-1">
+          Please enter your Phone Number or Email
+        </p>
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700"
+          >Password</label
+        >
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          class="mt-1 p-2 w-full border rounded-md"
+        />
+        <p class="text-xs text-gray-500 mt-1">Please enter your password</p>
+      </div>
+
+      <a href="#" class="text-sm text-blue-500 hover:text-blue-700"
+        >Reset Your Password</a
+      >
+
+      <button
+        type="submit"
+        class="mt-4 w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
+      >
+        LOGIN
+      </button>
+    </form>
+
+    <p class="text-center my-4">Or, login with</p>
+
+    <div class="flex justify-center gap-4">
+      <a href="#" class="text-blue-600 hover:text-blue-800"
+        ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M24 12.073c0-1.131-.1-2.226-.281-3.285H12.343v6.214h6.625c-.287 1.546-1.693 4.527-6.625 4.527-3.981 0-7.219-3.298-7.219-7.354s3.238-7.354 7.219-7.354c2.256 0 3.781.953 4.65 1.771l3.156-3.042C-2.693-1.031 16.616 0 12.343 0 5.532 0 0 5.422 0 12.073s5.532 12.073 12.343 12.073c3.473 0 5.9-1.214 7.662-2.519l3.662 3.557c-.803 1.5-3.569 3.889-6.324 5.031-2.752 1.144-5.802 1.739-8.688 1.739-10.79 0-19.563-8.695-19.563-19.381S1.554-.308 12.343-.308c10.79 0 19.563 8.695 19.563 19.381z"
+          />
+        </svg>
+        Facebook</a
+      >
+      <a href="#" class="text-red-600 hover:text-red-800"
+        ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M21.35 11.1h-2.69v-.35c0-2.45-.35-4.45-3.4-4.45-2.1 0-3.45 1.4-4 2.45-.25.45-.3 1.05-.3 1.65v.7h-1.35c-.1 0-.2.1-.2.2v2.3c0 .1.1.2.2.2h1.35v6.3c0 .1.1.2.2.2h2.85c.1 0 .2-.1.2-.2v-6.3h2.55c.1 0 .2-.1.2-.2v-2.3c0-.05-.05-.15-.1-.2-.05-.05-.15-.1-.25-.1z"
+          />
+        </svg>
+        Google</a
+      >
+    </div>
+  </div>
+</div>
+
+{% endblock %}

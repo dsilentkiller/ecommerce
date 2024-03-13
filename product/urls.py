@@ -9,6 +9,7 @@ app_name = 'product'
 urlpatterns = [
 
     path('', views.Base, name='base'),
+    path('home/', views.home, name='home'),
     path('product/', views.ProductListView.as_view(), name='index'),
     path('product/detail/<int:pk>',
          views.ProductDetailView.as_view(), name='product_detail'),
@@ -19,6 +20,8 @@ urlpatterns = [
     path('product/create/', views.ProductCreateView.as_view(), name='create'),
     path('price/list/', views.ProductPriceList.as_view(), name='price_list'),
     path('category/list/', views.CategoryList.as_view(), name='category_list'),
+    path('search/', views.SearchView.as_view(), name='search'),
+    path('signup/', views.SignupView.as_view(), name='signup'),
 
 ]
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

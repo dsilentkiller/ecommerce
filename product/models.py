@@ -1,14 +1,14 @@
 from django.db import models
-
+from django.shortcuts import reverse
 # Create your models here.
 
 
-class ProductManager(models.Manager):
-    def category(self, category_name):
-        return self.get_queryset().filter(category_name=category_name)
+# class ProductManager(models.Manager):
+#     def category(self, category_name):
+#         return self.get_queryset().filter(category_name=category_name)
 
-    def get_queryset(self):
-        return super().get_queryset().filter(price__gt=200)
+#     def get_queryset(self):
+#         return super().get_queryset().filter(price__gt=200)
 
 
 class Category(models.Model):
@@ -20,22 +20,34 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=300)
+    title = models.CharField(max_length=300)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     price = models.FloatField()
     summer_coll = models.CharField(max_length=200)
     autmon_coll = models.CharField(max_length=200)
+    slug = models.SlugField(null=True)
     # inventary=models.ForeignKey
     hot_sell = models.CharField(max_length=200)
-    discount = models.CharField(max_length=200)
+    discount_price = models.FloatField(null=True)
     description = models.TextField(null=True)
     image = models.ImageField(upload_to='static', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    custom_objects = ProductManager()
+    # custom_objects = ProductManager()
 
     def __str__(self):
-        return self.name
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('product:product_list', kwargs={'slug': self.slug})
+
+    def get_add_to_cart_url(self):
+        return reverse('product:add-to-cart', kwargs={'slug': self.slug})
+
+    def get_remove_from_cart_url(self):
+        return reverse("product:remove-from-cart", kwargs={
+            'slug': self.slug
+        })
 
 
 class Discount(models.Model):

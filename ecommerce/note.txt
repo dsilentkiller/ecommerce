@@ -1,0 +1,10 @@
+seting =>
+
+username => deerwalk
+password => DEERwalk@paaru123
+
+#pooja 
+username: Paru
+password: DEERwalk@Pooja123
+
+ # default_office_address=models.ForeignKey(Address,related_name='+',on_delete=models.SET_NULL) #only user ko based ma address bhatincha related_name=+ le but address bata user bhetidaina
